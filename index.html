@@ -2,66 +2,43 @@
 <html>
 	<head>
 		<title>fortyblue</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-		<script src="./bower_components/jquery/jquery.min.js"></script>
-		<script src="./bower_components/angular/angular.min.js"></script>		
-		<script src="./bower_components/angular-route/angular-route.min.js"></script>
-		<script src="./dev/app.js"></script>
-		<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<script type='text/javascript' src="./js/vendor/jquery.min.js"></script>
+		<script type='text/javascript' src="./js/vendor/jquery-ui.min.js"></script>
+		<script type='text/javascript' src="./js/vendor/handlebars.js"></script>
 		
+		<script type='text/javascript' src="./js/main.js"></script>
+
 		<link rel="stylesheet" href="./css/main.css">
 
-		<script>
-			$(document).ready(function(){
-				$("[rel=tooltip]").tooltip({ placement: 'right'});
-			});
+		<link rel="shortcut icon" href="favicon.ico" />
+
+		<script id="te_pre-object" type="text/x-handlebars-template">
+			<span class="pre-object-container" id="pre{{object_id}}" style="top:{{topPos}}px; left:{{leftPos}}px">
+				<span class="pre-object"></span>
+			</span>
+		</script>		
+
+		<script id="te_object" type="text/x-handlebars-template">
+			<span class="object" id="{{object_id}}" style="top:{{topPos}}px; left:{{leftPos}}px" >
+				<span class="handle">••••</span>
+				<span class="input-field" contenteditable="true"></span>
+				<span class="drag">|||||</span>
+			</span>
 		</script>
 
-		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
 
-	<body ng-app="myApp">
+	<body>
+		<div class="objects">
+		<span class="object-operator" style="top: 200px; left: 200px;">+</span>
 
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<a class="nav-logo" href="#">Brand</a>
-				</div>
-
-				<div class="btn-group" ng-controller="DropdownCtrl">
-					<button type="button" class="btn btn-default dropdown-toggle dropdown-timetable" data-toggle="dropdown">
-						{{display}} <span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu timetable-select" role="menu">
-
-						<li ng-repeat="choice in items">
-							<a ng-click="select(choice)">{{choice}}</a>
-						</li>
-						<li class="divider"></li>
-						<li><a href="#">Add Custom</a></li>
-					</ul>
-				</div>
-
-				<p class="navbar-text pull-right">Signed in as <a href="#" class="navbar-link">bukka</a></p>
-			</div>
-		</nav>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				<span class="time-until-text">Time until next lesson</span>
-				<span class="time-until">02:42</span>
-				<span class="glyphicon glyphicon-time remind-me" rel="tooltip" title="Set Reminder"></span>
-			</div>
-			<div class="col-sm-6">
-				Notifications
-			</div>
 		</div>
-		
-		<div ng-view></div>
 
-	</div>
-		
+
+		<div class="canvas">
+
+		</div>
 	</body>
 </html>
